@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import projects.DbException;
+import projects.exception.DbException;
 
 public class DbConnection {
 	private static String HOST = "localhost";
@@ -16,8 +16,7 @@ public class DbConnection {
  
 	public static Connection getConnection() {
 		String uri = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", HOST, PORT, SCHEMA, USER, PASSWORD); 
-		//String uri = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", 
-				//HOST, PORT, SCHEMA, USER, PASSWORD);
+	
 		try {
 			Connection conn = DriverManager.getConnection(uri);
 			System.out.println("Connection to schema '" + SCHEMA + "' is successful.");
